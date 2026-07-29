@@ -4,7 +4,7 @@ function updateTime() {
   if (miamiElement) {
     let miamiDateElement = miamiElement.querySelector(".date");
     let miamiTimeElement = miamiElement.querySelector(".time");
-    let miamiTime = moment().tz("America/Miami");
+    let miamiTime = moment().tz("America/New_York");
 
     miamiDateElement.innerHTML = miamiTime.format("MMMM Do YYYY");
     miamiTimeElement.innerHTML = miamiTime.format(
