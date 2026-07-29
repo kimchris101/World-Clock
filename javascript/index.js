@@ -53,3 +53,29 @@ setInterval(updateTime, 1000);
 
 let citiesSelectElement = document.querySelector("#city");
 citiesSelectElement.addEventListener("change", updateCity);
+
+// Dark / Light Mode Toggle
+const toggleSwitch = document.querySelector('#checkbox');
+const themeLabel = document.querySelector('#theme-label');
+
+function switchTheme(e) {
+  if (e.target.checked) {
+    document.body.classList.add('dark-theme');
+    themeLabel.textContent = '☀️ Light Mode';
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.body.classList.remove('dark-theme');
+    themeLabel.textContent = '🌙 Dark Mode';
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+toggleSwitch.addEventListener('change', switchTheme);
+
+// Persist user preference on reload
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme === 'dark') {
+  document.body.classList.add('dark-theme');
+  toggleSwitch.checked = true;
+  themeLabel.textContent = '☀️ Light Mode';
+}
